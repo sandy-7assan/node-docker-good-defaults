@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('checkout ') {
       steps {
-        echo 'hello'
+        git(url: 'https://github.com/sandy-7assan/node-docker-good-defaults.git', branch: 'main', changelog: true, poll: true)
       }
     }
 
@@ -24,7 +24,7 @@ pipeline {
 
 '''
         sleep 3
-        sh 'curl localhost:9230'
+        sh 'curl localhost:9229'
         sh 'docker stop app3 && docker rm app3'
       }
     }
