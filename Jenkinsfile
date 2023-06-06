@@ -14,18 +14,18 @@ pipeline {
 
     stage('build') {
       steps {
-        sh 'docker build -t app2:$BUILD_ID .'
+        sh 'docker build -t app4:$BUILD_ID .'
       }
     }
 
     stage('run & test') {
       steps {
-        sh '''docker run --name app2 -d -p 9229:9230 app2:$BUILD_ID
+        sh '''docker run --name app4 -d -p 9229:9230 app4:$BUILD_ID
 
 '''
         sleep 3
         sh 'curl localhost:9229'
-        sh 'docker stop app2 && docker rm app2'
+        sh 'docker stop app4 && docker rm app4'
       }
     }
 
