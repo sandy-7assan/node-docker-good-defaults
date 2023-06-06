@@ -14,18 +14,18 @@ pipeline {
 
     stage('build') {
       steps {
-        sh 'docker build -t jenkins:$BUILD_ID .'
+        sh 'docker build -t app2:$BUILD_ID .'
       }
     }
 
     stage('run & test') {
       steps {
-        sh '''docker run --name jenkins -d -p 3000:3000 jenkins:$BUILD_ID
+        sh '''docker run --name app2 -d -p 3000:3000 app2:$BUILD_ID
 
 '''
         sleep 3
         sh 'curl localhost:3000'
-        sh 'docker stop jenkins && docker rm jenkins'
+        sh 'docker stop app2 && docker rm app2'
       }
     }
 
