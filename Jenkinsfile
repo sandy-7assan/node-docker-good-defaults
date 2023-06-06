@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('checkout ') {
       steps {
-        echo 'checkout'
+        git(url: 'https://github.com/sandy-7assan/node-docker-good-defaults.git', branch: 'main', changelog: true, poll: true)
       }
     }
 
