@@ -31,9 +31,9 @@ pipeline {
 
     stage('push') {
       steps {
-        sh 'docker tag node1:$BUILD_ID sandyabh/node1:$BUILD_ID'
+        sh 'docker tag node1:$BUILD_ID sandyabh/node:$BUILD_ID'
         sh 'docker login -u sandyabh -p SoMo@56412345'
-        sh 'docker push sandyabh/app:$BUILD_ID'
+        sh 'docker push sandyabh/node:$BUILD_ID'
       }
     }
 
