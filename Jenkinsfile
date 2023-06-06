@@ -14,7 +14,7 @@ pipeline {
 
     stage('build') {
       steps {
-        echo 'build'
+        sh 'docker build -t jenkins:${env.BUILD_ID} .'
       }
     }
 
