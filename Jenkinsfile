@@ -20,11 +20,11 @@ pipeline {
 
     stage('run & test') {
       steps {
-        sh '''docker run --name app2 -d -p 3000:3000 app2:$BUILD_ID
+        sh '''docker run --name app2 -d -p 9229:9230 app2:$BUILD_ID
 
 '''
         sleep 3
-        sh 'curl localhost:3000'
+        sh 'curl localhost:9229'
         sh 'docker stop app2 && docker rm app2'
       }
     }
