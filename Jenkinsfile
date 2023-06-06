@@ -24,7 +24,7 @@ pipeline {
 
 '''
         sleep 3
-        sh 'curl localhost:9229'
+        sh 'curl localhost:9230'
         sh 'docker stop app4 && docker rm app4'
       }
     }
