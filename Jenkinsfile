@@ -20,7 +20,12 @@ pipeline {
 
     stage('run & test') {
       steps {
-        echo 'run'
+        sh '''docker run --name jenkins -d -p 3000:3000 jenkins:$BUILD_ID
+
+'''
+        sleep 3
+        sh 'curl localhost:3000'
+        sh 'docker stop jenkins && docker rm jenkins'
       }
     }
 
